@@ -1,0 +1,32 @@
+{
+  "name": "live2d-model",
+  "version": "1.0.0",
+  "description": "live2d模型",
+  "main": "index.js",
+  "author": "nineya",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nineya/live2d-model.git"
+  },
+  "keywords": [
+    "nineya",
+    "live2d",
+    "live2d-widget",
+    "live2d-model",
+    "live2d-widget-model"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nineya/live2d-model/issues"
+  },
+  "homepage": "https://github.com/nineya/live2d-model#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  },
+  "dependencies": {
+  }
+}
