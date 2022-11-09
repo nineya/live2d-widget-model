@@ -34,6 +34,5 @@ exports.build = function () {
         modelsJson[i] = {modelId: i, textureNum: textureNum, modelPath: modelPath}
         console.log("complete " + modelPath)
     }
-    console.log(modelsJson)
     writeJson(modelsJson, config.apiHome + "model.json", 4)
 }

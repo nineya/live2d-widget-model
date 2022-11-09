@@ -1,11 +1,12 @@
 const {readJson, writeJson, relativePath, mkdirs, transformModel, transformMotions} = require("./utils")
 const config = require('./config.json')
 
-exports.build = function (modelId, modelPath) {
+exports.build = function (modelId, modelPath, message) {
     let textures = readJson(modelPath + config.texturesFile);
     let indexJson = readJson(modelPath + config.indexFile)
     let relativeDistPath = relativePath(config.apiHome, modelPath)
-    mkdirs(config.apiHome + modelId)
+    let apiModelPath = config.apiHome + modelId + "/";
+    mkdirs(apiModelPath)
     // 处理路径
     transformModel(relativeDistPath, indexJson)
     transformMotions(relativeDistPath, indexJson)
@@ -17,7 +18,8 @@ exports.build = function (modelId, modelPath) {
             texture[j] = relativeDistPath + texture[j];
         }
         indexJson['textures'] = texture
-        writeJson(indexJson, config.apiHome + modelId + "/" + i + ".json")
+        writeJson(indexJson, apiModelPath + i + ".json")
     }
+    writeJson({id: modelId, name: modelPath, message: message}, apiModelPath + "model.json")
     return textureNum;
 }
