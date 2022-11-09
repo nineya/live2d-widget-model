@@ -1,0 +1,7 @@
+{
+  "texturesFile": "textures.cache",
+  "indexFile": "index.json",
+  "apiHome": "./api/",
+  "distHome": "./dist/",
+  "modelHome": "./model/"
+}
