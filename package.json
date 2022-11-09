@@ -25,8 +25,20 @@
   },
   "homepage": "https://github.com/nineya/live2d-model#readme",
   "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "babel-loader": "^8.2.3",
     "gulp": "^4.0.2",
-    "gulp-clean": "^0.4.0"
+    "gulp-clean": "^0.4.0",
+    "gulp-less": "^5.0.0",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-csso": "^4.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-babel": "^8.0.0",
+    "webpack": "^5.68.0",
+    "webpack-stream": "^7.0.0"
   },
   "dependencies": {
   }
