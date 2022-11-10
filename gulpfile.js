@@ -96,7 +96,7 @@ task("js", () => {
 // 拷贝资源
 task("assets", () => {
     return src('src/driver/*', {
-        ignore: ['**/*.{less,js}']
+        ignore: ['**/*.{less,scss}']
     })
         .pipe(dest(config.distHome))
 })
