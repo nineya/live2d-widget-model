@@ -8,8 +8,8 @@ live2d_settings['modelCdnUrl'] = 'https://cdn.jsdelivr.net/gh/nineya/live2d-mode
 
 // 默认模型
 live2d_settings['models'] = [[0, 87], [1, 63], [2, 156], [3, 156], [4, 2], [5, 20], [6, 1]]  // 二维数组，包含模型列表，每项模型中包含模型id和皮肤数量
-live2d_settings['modelId'] = 1;            // 默认模型 ID，可在 F12 控制台找到
-live2d_settings['modelTexturesId'] = 53;           // 默认材质 ID，可在 F12 控制台找到
+live2d_settings['modelId'] = 0;            // 默认模型 ID，可在 F12 控制台找到
+live2d_settings['modelTexturesId'] = 0;           // 默认材质 ID，可在 F12 控制台找到
 
 // 工具栏设置
 live2d_settings['showToolMenu'] = true;         // 显示 工具栏          ，可选 true(真), false(假)
