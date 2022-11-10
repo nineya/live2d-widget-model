@@ -4,7 +4,7 @@ window.live2d_settings = Array();
 // live2d_settings['modelAPI']             = '//live2d.fghrsh.net/api/';   // 自建 API 修改这里
 live2d_settings['tipsMessage'] = 'waifu-tips.json';            // 同目录下可省略路径
 live2d_settings['hitokotoAPI'] = 'lwl12.com';                  // 一言 API，可选 'lwl12.com', 'hitokoto.cn', 'jinrishici.com'(古诗词)
-live2d_settings['modelCdnUrl'] = 'https://unpkg.com/live2d-model@latest/'
+live2d_settings['modelCdnUrl'] = 'https://unpkg.com/live2d-widget-model@latest/'
 
 // 默认模型
 live2d_settings['models'] = [[0, 87], [1, 63], [2, 156], [3, 156], [4, 2], [5, 20], [6, 1]]  // 二维数组，包含模型列表，每项模型中包含模型id和皮肤数量
@@ -50,7 +50,7 @@ live2d_settings['waifuDraggableRevert'] = true;         // 松开鼠标还原拖
 live2d_settings['l2dVersion'] = '1.0.0';        // 当前版本
 live2d_settings['l2dVerDate'] = '2022.11.09'; // 版本更新日期
 live2d_settings['homePageUrl'] = 'auto';       // 主页地址，可选 'auto'(自动), '{URL 网址}'
-live2d_settings['aboutPageUrl'] = 'https://github.com/nineya/live2d-model';   // 关于页地址, '{URL 网址}'
+live2d_settings['aboutPageUrl'] = 'https://github.com/nineya/live2d-widget-model';   // 关于页地址, '{URL 网址}'
 live2d_settings['screenshotCaptureName'] = 'live2d.png'; // 看板娘截图文件名，例如 'live2d.png'
 
 /****************************************************************************************************/
