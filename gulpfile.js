@@ -10,7 +10,7 @@ const config = require('./src/build/config.json')
 
 // 清除目录
 task("clean", () => {
-    return src([config.apiHome, config.distHome], {
+    return src([config.apiHome, config.distHome, config.modelReadme], {
         read: false,
         allowEmpty: true,
     }).pipe(

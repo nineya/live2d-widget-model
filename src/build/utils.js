@@ -48,23 +48,81 @@ exports.mkdirs = function (dirname) {
 }
 
 /**
- * 转换model的路径
- * @param modelPath
+ * 转换textures中的路径
+ * @param relativePath
  * @param indexJson
  */
-exports.transformModel = function (modelPath, indexJson) {
-    indexJson['model'] = modelPath + indexJson['model']
+exports.transformTextures = function (relativePath, indexJson) {
+    let textures = indexJson['textures']
+    if (!textures) return
+    for (let index in textures) {
+        textures[index] = exports.normailzeFilePath(relativePath + textures[index])
+    }
+}
+
+/**
+ * 转换model的路径
+ * @param relativePath
+ * @param indexJson
+ */
+exports.transformModel = function (relativePath, indexJson) {
+    if (!indexJson['model']) return
+    indexJson['model'] = exports.normailzeFilePath(relativePath + indexJson['model'])
+}
+
+/**
+ * 转换physics的路径
+ * @param relativePath
+ * @param indexJson
+ */
+exports.transformPhysics = function (relativePath, indexJson) {
+    if (!indexJson['physics']) return
+    indexJson['physics'] = exports.normailzeFilePath(relativePath + indexJson['physics'])
+}
+
+/**
+ * 转换pose的路径
+ * @param relativePath
+ * @param indexJson
+ */
+exports.transformPose = function (relativePath, indexJson) {
+    if (!indexJson['pose']) return
+    indexJson['pose'] = exports.normailzeFilePath(relativePath + indexJson['pose'])
+}
+
+/**
+ * 转换expressions中的路径
+ * @param relativePath
+ * @param indexJson
+ */
+exports.transformExpressions = function (relativePath, indexJson) {
+    if (!indexJson['expressions']) return
+    for (const data of indexJson['expressions']) {
+        data['file'] = exports.normailzeFilePath(relativePath + data['file'])
+    }
 }
 
 /**
  * 转换motions中的路径
- * @param modelPath
+ * @param relativePath
  * @param indexJson
  */
-exports.transformMotions = function (modelPath, indexJson) {
+exports.transformMotions = function (relativePath, indexJson) {
+    if (!indexJson['motions']) return
     for (const [key, value] of Object.entries(indexJson['motions'])) {
         for (const data of value) {
-            data['file'] = modelPath + data['file']
+            data['file'] = exports.normailzeFilePath(relativePath + data['file'])
+            data['sound'] && (data['sound'] = exports.normailzeFilePath(relativePath + data['sound']))
         }
     }
 }
+
+/**
+ * 标准化路径
+ * @param filePath
+ * @returns {string}
+ */
+exports.normailzeFilePath = function (filePath) {
+    return path.normalize(filePath).replace(/\\/g, "/")
+}
+

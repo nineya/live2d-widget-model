@@ -3,5 +3,6 @@
   "indexFile": "index.json",
   "apiHome": "./api/",
   "distHome": "./dist/",
-  "modelHome": "./model/"
+  "modelHome": "./model/",
+  "modelReadme": "可用model列表.md"
 }
