@@ -333,7 +333,7 @@ function loadTipsMessage(result) {
         let models = live2d_settings.models;
         for (let index in models) {
             if (models[index][0] === modelId) {
-                return index;
+                return Number(index);
             }
         }
         return 0;
