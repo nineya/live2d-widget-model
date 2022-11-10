@@ -59,7 +59,12 @@ task("js", () => {
         return fs.readdirSync("./src/driver", "utf-8")
             .filter((file) => {
                 return /\.js$/.test(file);
-            });
+            })
+            .reduce((obj, file) => {
+                const fileName = file.replace(/.js$/, "");
+                obj[fileName] = resolve(`./src/driver/${file}`);
+                return obj;
+            }, {});
     };
 
     return webpack({
@@ -88,8 +93,16 @@ task("js", () => {
         .pipe(dest(config.distHome));
 });
 
+// 拷贝资源
+task("assets", () => {
+    return src('src/driver/*', {
+        ignore: ['**/*.{less,js}']
+    })
+        .pipe(dest(config.distHome))
+})
+
 // 编译
-task("compile", series("css", "js"))
+task("compile", series("clean", parallel("css", "js", "assets")));
 
 // 默认模式
-task("default", series("clean", "build", "compile"));
+task("default", series("clean", "build", parallel("css", "js", "assets")));
