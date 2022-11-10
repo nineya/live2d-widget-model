@@ -1,10 +1,11 @@
 const bilibiliLive = require("./bilibiliLive")
+const potionMaker = require("./potionMaker")
 const { mkdirs, writeJson } = require("./utils")
 const config = require('./config.json')
 
 const models = [
-    // "Potion-Maker/Pio/",
-    // "Potion-Maker/Tia/",
+    "Potion-Maker/Pio/",
+    "Potion-Maker/Tia/",
     "bilibili-live/22/",
     "bilibili-live/33/",
     // "ShizukuTalk/",
@@ -12,12 +13,14 @@ const models = [
     // "KantaiCollection/murakumo/"
 ]
 const handles = [
+    potionMaker,
+    potionMaker,
     bilibiliLive,
     bilibiliLive,
 ]
 const messages = [
-    // "来自 Potion Maker 的 Pio 酱 ~",
-    // "来自 Potion Maker 的 Tia 酱 ~",
+    "来自 Potion Maker 的 Pio 酱 ~",
+    "来自 Potion Maker 的 Tia 酱 ~",
     "来自 Bilibili Live 的 22 哦 ~",
     "来自 Bilibili Live 的 33 的说",
     // "Shizuku Talk ！这里是 Shizuku ~",

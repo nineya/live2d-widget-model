@@ -7,7 +7,7 @@ live2d_settings['hitokotoAPI'] = 'lwl12.com';                  // 一言 API，�
 live2d_settings['modelCdnUrl'] = 'https://cdn.jsdelivr.net/gh/nineya/live2d-model/'
 
 // 默认模型
-live2d_settings['models'] = [[0, 153], [1, 153]]  // 二维数组，包含模型列表，模型列表中包含模型id和皮肤数量
+live2d_settings['models'] = [[0, 87], [1, 63], [2, 156], [3, 156]]  // 二维数组，包含模型列表，模型列表中包含模型id和皮肤数量
 live2d_settings['modelId'] = 1;            // 默认模型 ID，可在 F12 控制台找到
 live2d_settings['modelTexturesId'] = 53;           // 默认材质 ID，可在 F12 控制台找到
 

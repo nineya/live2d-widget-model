@@ -11,7 +11,7 @@ exports.build = function (modelId, modelPath, message) {
     transformMotions(relativeDistPath, indexJson)
     // 处理材质
     let textureNum = textures.length
-    for (let i = 0; i < textureNum; i ++) {
+    for (let i = 0; i < textureNum; i++) {
         let texture = textures[i]
         for (let j = 0; j < texture.length; j++) {
             texture[j] = relativeDistPath + texture[j];
