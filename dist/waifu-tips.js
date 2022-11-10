@@ -4,7 +4,7 @@ window.live2d_settings = Array();
 // live2d_settings['modelAPI']             = '//live2d.fghrsh.net/api/';   // 自建 API 修改这里
 live2d_settings['tipsMessage'] = 'waifu-tips.json';            // 同目录下可省略路径
 live2d_settings['hitokotoAPI'] = 'lwl12.com';                  // 一言 API，可选 'lwl12.com', 'hitokoto.cn', 'jinrishici.com'(古诗词)
-live2d_settings['modelCdnUrl'] = 'https://cdn.jsdelivr.net/gh/nineya/live2d-model/'
+live2d_settings['modelCdnUrl'] = 'https://unpkg.com/live2d-model@latest/'
 
 // 默认模型
 live2d_settings['models'] = [[0, 87], [1, 63], [2, 156], [3, 156], [4, 2], [5, 20], [6, 1]]  // 二维数组，包含模型列表，每项模型中包含模型id和皮肤数量
