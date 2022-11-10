@@ -28,7 +28,7 @@ exports.writeJson = function (data, filePath, space = 0) {
  * @returns {string}
  */
 exports.relativePath = function (fromPath, toPath) {
-    return path.relative(fromPath, toPath).replace(/\\/g, "/")
+    return path.relative(fromPath, toPath).replace(/\\/g, "/") + "/"
 }
 
 /**
@@ -53,7 +53,7 @@ exports.mkdirs = function (dirname) {
  * @param indexJson
  */
 exports.transformModel = function (modelPath, indexJson) {
-    indexJson['model'] = modelPath + '/' + indexJson['model']
+    indexJson['model'] = modelPath + indexJson['model']
 }
 
 /**
@@ -64,7 +64,7 @@ exports.transformModel = function (modelPath, indexJson) {
 exports.transformMotions = function (modelPath, indexJson) {
     for (const [key, value] of Object.entries(indexJson['motions'])) {
         for (const data of value) {
-            data['file'] = modelPath + '/' + data['file']
+            data['file'] = modelPath + data['file']
         }
     }
 }
