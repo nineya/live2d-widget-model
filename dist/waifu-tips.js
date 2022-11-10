@@ -329,7 +329,7 @@ function loadTipsMessage(result) {
      * 取得这个模型id对应的数组下标
      * @param modelId
      */
-    function getNextModelIdIndex(modelId = 0) {
+    function getModelIdIndex(modelId = 0) {
         let models = live2d_settings.models;
         for (let index in models) {
             if (models[index][0] === modelId) {
@@ -345,7 +345,7 @@ function loadTipsMessage(result) {
      */
     function loadNextModelUrl(modelId = 0) {
         let modelNum = live2d_settings.models.length
-        let newModelId = live2d_settings.modelRandMode === 'switch' ? (getNextModelIdIndex(modelId) + 1) % modelNum : Math.floor(Math.random() * modelNum)
+        let newModelId = live2d_settings.modelRandMode === 'switch' ? (getModelIdIndex(modelId) + 1) % modelNum : Math.floor(Math.random() * modelNum)
         return live2d_settings.modelCdnUrl + 'api/' + newModelId + '-model.json'
     }
 
@@ -356,10 +356,9 @@ function loadTipsMessage(result) {
      * @returns {string}
      */
     function loadNextTextureId(modelId = 0, textureId = 0) {
-        let modelIndex = getNextModelIdIndex(modelId)
+        let modelIndex = getModelIdIndex(modelId)
         let textureNum = live2d_settings.models[modelIndex][1]
-        let newTextureId = live2d_settings.modelTexturesRandMode === 'switch' ? (textureId + 1) % textureNum : Math.floor(Math.random() * textureNum)
-        return live2d_settings.modelCdnUrl + 'api/' + modelId + '-' + newTextureId + ".json"
+        return live2d_settings.modelTexturesRandMode === 'switch' ? (textureId + 1) % textureNum : Math.floor(Math.random() * textureNum)
     }
 
     function loadOtherModel() {
@@ -383,18 +382,13 @@ function loadTipsMessage(result) {
     function loadRandTextures() {
         var modelId = modelStorageGetItem('modelId');
         var modelTexturesId = modelStorageGetItem('modelTexturesId');
+        let newModelTexturesId = loadNextTextureId(modelId, modelTexturesId);
 
-        $.ajax({
-            cache: live2d_settings.modelTexturesRandMode === 'switch',
-            url: loadNextTextureId(modelId, modelTexturesId),
-            dataType: "json",
-            success: function (result) {
-                if (result.textures['id'] == 1 && (modelTexturesId == 1 || modelTexturesId == 0))
-                    showMessage(waifu_tips.load_rand_textures[0], 3000, true);
-                else showMessage(waifu_tips.load_rand_textures[1], 3000, true);
-                loadModel(modelId, result.textures['id']);
-            }
-        });
+
+        if (newModelTexturesId == 1 && (modelTexturesId == 1 || modelTexturesId == 0))
+            showMessage(waifu_tips.load_rand_textures[0], 3000, true);
+        else showMessage(waifu_tips.load_rand_textures[1], 3000, true);
+        loadModel(modelId, newModelTexturesId);
     }
 
     function modelStorageGetItem(key) {
