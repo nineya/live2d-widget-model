@@ -1,5 +1,5 @@
 const bilibiliLive = require("./bilibiliLive")
-const { writeJson } = require("./utils")
+const { mkdirs, writeJson } = require("./utils")
 const config = require('./config.json')
 
 const models = [
@@ -26,6 +26,7 @@ const messages = [
 ]
 
 exports.build = function () {
+    mkdirs(config.apiHome)
     let modelsJson = []
     for (let i = 0; i < models.length; i++) {
         let modelPath = models[i]

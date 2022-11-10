@@ -7,7 +7,7 @@ live2d_settings['hitokotoAPI'] = 'lwl12.com';                  // 一言 API，�
 live2d_settings['modelCdnUrl'] = 'https://cdn.jsdelivr.net/gh/nineya/live2d-model/'
 
 // 默认模型
-live2d_settings['models'] = [[0, 153], [1, 153]]  // 二维数组，包含模型列表，模型列表中包含模型id和最大皮肤id两个数值
+live2d_settings['models'] = [[0, 153], [1, 153]]  // 二维数组，包含模型列表，模型列表中包含模型id和皮肤数量
 live2d_settings['modelId'] = 1;            // 默认模型 ID，可在 F12 控制台找到
 live2d_settings['modelTexturesId'] = 53;           // 默认材质 ID，可在 F12 控制台找到
 
@@ -224,7 +224,7 @@ function loadModel(modelId, modelTexturesId = 0) {
         sessionStorage.setItem('modelId', modelId);
         sessionStorage.setItem('modelTexturesId', modelTexturesId);
     }
-    loadlive2d('live2d', live2d_settings.modelCdnUrl + 'api/' + modelId + '/' + modelTexturesId + ".json", (live2d_settings.showF12Status ? console.log('[Status]', 'live2d', '模型', modelId + '-' + modelTexturesId, '加载完成') : null));
+    loadlive2d('live2d', live2d_settings.modelCdnUrl + 'api/' + modelId + '-' + modelTexturesId + ".json", (live2d_settings.showF12Status ? console.log('[Status]', 'live2d', '模型', modelId + '-' + modelTexturesId, '加载完成') : null));
 }
 
 function loadTipsMessage(result) {
@@ -346,7 +346,7 @@ function loadTipsMessage(result) {
     function loadNextModelUrl(modelId = 0) {
         let modelNum = live2d_settings.models.length
         let newModelId = live2d_settings.modelRandMode === 'switch' ? (getNextModelIdIndex(modelId) + 1) % modelNum : Math.floor(Math.random() * modelNum)
-        return live2d_settings.modelCdnUrl + 'api/' + newModelId + '/model.json'
+        return live2d_settings.modelCdnUrl + 'api/' + newModelId + '-model.json'
     }
 
     /**
@@ -357,9 +357,9 @@ function loadTipsMessage(result) {
      */
     function loadNextTextureId(modelId = 0, textureId = 0) {
         let modelIndex = getNextModelIdIndex(modelId)
-        let textureNum = live2d_settings.models[modelIndex][1] + 1
+        let textureNum = live2d_settings.models[modelIndex][1]
         let newTextureId = live2d_settings.modelTexturesRandMode === 'switch' ? (textureId + 1) % textureNum : Math.floor(Math.random() * textureNum)
-        return live2d_settings.modelCdnUrl + 'api/' + modelId + '/' + newTextureId + ".json"
+        return live2d_settings.modelCdnUrl + 'api/' + modelId + '-' + newTextureId + ".json"
     }
 
     function loadOtherModel() {
