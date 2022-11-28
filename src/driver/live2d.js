@@ -4235,4 +4235,3 @@ default = r;
 		return null == this.json[this.INIT_PARTS_VISIBLE] || null == this.json[this.INIT_PARTS_VISIBLE][t] ? NaN : this.json[this.INIT_PARTS_VISIBLE][t][this.VALUE]
 	}
 }]);
-//# sourceMappingURL=live2d.js.map

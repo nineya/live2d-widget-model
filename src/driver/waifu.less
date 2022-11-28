@@ -3,51 +3,57 @@
     bottom: 0;
     z-index: 1;
     font-size: 0;
-    -webkit-transform: translateY(3px);
     transform: translateY(3px);
-}
-.waifu:hover {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-}
-.waifu-tips {
-    opacity: 0;
-    margin: -20px 20px;
-    padding: 5px 10px;
-    border: 1px solid rgba(224, 186, 140, 0.62);
-    border-radius: 12px;
-    background-color: rgba(236, 217, 188, 0.5);
-    box-shadow: 0 3px 15px 2px rgba(191, 158, 118, 0.2);
-    text-overflow: ellipsis;
-    overflow: hidden;
-    position: absolute;
-    animation-delay: 5s;
-    animation-duration: 50s;
-    animation-iteration-count: infinite;
-    animation-name: shake;
-    animation-timing-function: ease-in-out;
-}
-.waifu-tool {
-    display: none;
-    color: #aaa;
-    top: 50px;
-    right: 10px;
-    position: absolute;
-}
-.waifu:hover .waifu-tool {
-    display: block;
-}
-.waifu-tool span {
-    display: block;
-    cursor: pointer;
-    color: #5b6c7d;
-    transition: 0.2s;
-}
-.waifu-tool span:hover {
-    color: #34495e;
-}
-.waifu #live2d{
-    position: relative;
+
+    &:hover {
+        transform: translateY(0);
+
+        .waifu-tool {
+            display: block;
+        }
+    }
+
+    &-tips {
+        opacity: 0;
+        margin: -20px 20px;
+        padding: 5px 10px;
+        border: 1px solid rgba(72, 175, 247, 0.9);
+        border-radius: 12px;
+        background-color: rgba(216, 238, 255, 0.8);
+        box-shadow: 0 3px 15px 2px rgba(9, 149, 255, 0.2);
+        text-overflow: ellipsis;
+        overflow: hidden;
+        position: absolute;
+        animation-delay: 5s;
+        animation-duration: 50s;
+        animation-iteration-count: infinite;
+        animation-name: shake;
+        animation-timing-function: ease-in-out;
+    }
+
+    &-tool {
+        display: none;
+        color: #aaa;
+        text-shadow: -1px 0 #5fa8ff, 0 1px #5fa8ff, 1px 0 #5fa8ff, 0 -1px #5fa8ff;
+        top: 50px;
+        right: 10px;
+        position: absolute;
+    }
+
+    &-tool span {
+        display: block;
+        cursor: pointer;
+        color: #c1ebff;
+        transition: 0.2s;
+
+        &:hover {
+            color: #89bfff;
+        }
+    }
+
+    #live2d{
+        position: relative;
+    }
 }
 
 @keyframes shake {
