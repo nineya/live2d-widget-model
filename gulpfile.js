@@ -51,40 +51,6 @@ task("css", () => {
 
 // 压缩js
 task("js", () => {
-    // const getEntryData = () => {
-    //     return fs.readdirSync("./src/driver", "utf-8")
-    //         .filter((file) => {
-    //             return /\.js$/.test(file);
-    //         })
-    //         .reduce((obj, file) => {
-    //             const fileName = file.replace(/.js$/, "");
-    //             obj[fileName] = resolve(`./src/driver/${file}`);
-    //             return obj;
-    //         }, {});
-    // };
-
-    // return webpack({
-    //     mode: "production",
-    //     entry: getEntryData(),
-    //     module: {
-    //         rules: [
-    //             {
-    //                 test: /\.js$/,
-    //                 loader: "babel-loader",
-    //                 include: resolve("source"),
-    //                 exclude: resolve("node_modules"),
-    //                 options: {
-    //                     presets: ["@babel/preset-env"],
-    //                     plugins: ["@babel/plugin-transform-runtime"],
-    //                 },
-    //             },
-    //         ],
-    //     },
-    //     stats: "errors-only",
-    //     output: {
-    //         filename: "[name].min.js",
-    //     },
-    // })
     const ignoreFiles = [].map((file) => `./src/driver/${file}.js`);
 
     return src("./src/driver/*.js", {
