@@ -47,7 +47,7 @@ live2d_settings['waifuDraggable'] = 'disable';    // 拖拽样式，例如 'disa
 live2d_settings['waifuDraggableRevert'] = true;         // 松开鼠标还原拖拽位置，可选 true(真), false(假)
 
 // 其他杂项设置
-live2d_settings['l2dVersion'] = '1.0.0';        // 当前版本
+live2d_settings['l2dVersion'] = '1.0.1';        // 当前版本
 live2d_settings['l2dVerDate'] = '2022.11.09'; // 版本更新日期
 live2d_settings['homePageUrl'] = 'auto';       // 主页地址，可选 'auto'(自动), '{URL 网址}'
 live2d_settings['aboutPageUrl'] = 'https://github.com/nineya/live2d-widget-model';   // 关于页地址, '{URL 网址}'
@@ -380,8 +380,8 @@ function loadTipsMessage(result) {
     }
 
     function loadRandTextures() {
-        var modelId = modelStorageGetItem('modelId');
-        var modelTexturesId = modelStorageGetItem('modelTexturesId');
+        var modelId = Number(modelStorageGetItem('modelId'));
+        var modelTexturesId = Number(modelStorageGetItem('modelTexturesId'));
         let newModelTexturesId = loadNextTextureId(modelId, modelTexturesId);
 
 

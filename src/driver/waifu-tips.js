@@ -380,8 +380,8 @@ function loadTipsMessage(result) {
     }
 
     function loadRandTextures() {
-        var modelId = modelStorageGetItem('modelId');
-        var modelTexturesId = modelStorageGetItem('modelTexturesId');
+        var modelId = Number(modelStorageGetItem('modelId'));
+        var modelTexturesId = Number(modelStorageGetItem('modelTexturesId'));
         let newModelTexturesId = loadNextTextureId(modelId, modelTexturesId);
 
 
